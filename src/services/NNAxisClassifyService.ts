@@ -1,23 +1,33 @@
 import { Ref, ref } from 'vue';
 import P5 from 'p5';
+// @ts-ignore
+import ml5 from 'ml5';
 
 interface ClickAxis {
   x: number;
   y: number;
 }
 
+type ButtonType = 'blue' | 'red';
+
 export default class NNAxisClassifyService {
   private static instance: NNAxisClassifyService;
 
   p5Ref: Ref<HTMLDivElement | null>;
-  buttonType: 'blue' | 'red' = 'red';
+  buttonType: ButtonType = 'red';
   records: {
     blue: ClickAxis[];
     red: ClickAxis[];
   } = { blue: [], red: [] };
 
+  nn: any;
+
   private constructor() {
     this.p5Ref = ref(null);
+    this.nn = ml5.neuralNetwork({
+      task: 'classification',
+      debug: false,
+    });
   }
 
   public static getInstance() {
@@ -61,7 +71,43 @@ export default class NNAxisClassifyService {
     }
   }
 
-  toggleButtonType(type: 'blue' | 'red') {
+  toggleButtonType(type: ButtonType) {
     this.buttonType = type;
+  }
+
+  async classify() {
+    const keys = Object.keys(this.records) as ButtonType[];
+    keys.forEach((key) => {
+      this.records[key].forEach((item) => {
+        const inputs = {
+          x: item.x,
+          y: item.y,
+        };
+        const output = {
+          type: key,
+        };
+        this.nn.addData(inputs, output);
+      });
+    });
+    try {
+      await this.nn.normalizeData();
+    } catch (e) {
+      console.error(e);
+      throw new Error('标准化数据失败');
+    }
+    await new Promise((resolve, reject) => {
+      this.nn.train(
+        {
+          epochs: 32,
+          batchSize: 12,
+        },
+        (err: any) => {
+          if (err) {
+            reject(err);
+          }
+          resolve('训练完成');
+        }
+      );
+    });
   }
 }
