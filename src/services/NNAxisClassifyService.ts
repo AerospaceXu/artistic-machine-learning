@@ -56,10 +56,11 @@ export default class NNAxisClassifyService {
       const radius = 15;
       p.setup = () => {
         p.createCanvas(this.canvasSize.width, this.canvasSize.height);
-        p.background(0);
+        p.background('#333333');
       };
       p.draw = () => {
-        p.background(0);
+        p.background('#333333');
+        p.noStroke();
         p.fill('red');
         this.records.red.forEach((record) => {
           p.ellipse(record.x, record.y, radius, radius);
@@ -81,6 +82,7 @@ export default class NNAxisClassifyService {
       const drawResults = () => {
         this.results.forEach((res) => {
           const resColor = res.type as 'blue' | 'red';
+          p.noStroke();
           if (this.typeColor[resColor]) {
             p.fill(this.typeColor[resColor]);
           } else {
