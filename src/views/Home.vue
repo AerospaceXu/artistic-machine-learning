@@ -1,14 +1,16 @@
 <template>
-  <router-view></router-view>
+  <h1>Home Page Works!!!</h1>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'App',
+  name: 'Home',
   setup() {
     return {};
   },
 });
 </script>
+
+<style scoped lang="scss"></style>
