@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="center">
     <ul class="center">
       <li>
         <router-link to="/">首页</router-link>
@@ -24,15 +24,15 @@ export default defineComponent({
 
 <style scoped lang="scss">
 nav {
-  height: 44px;
+  height: 56px;
   font-size: 16px;
-  color: rgba(0, 0, 0, 0.72);
+  color: rgba(0, 0, 0, 0.87);
 
   > ul > li {
     margin: 0 12px;
 
     > a.router-link-exact-active {
-      color: #263238;
+      color: #546e7a;
       font-weight: 600;
     }
   }
