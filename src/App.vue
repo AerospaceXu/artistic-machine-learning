@@ -1,4 +1,5 @@
 <template>
+  <header class="center">Designed by ml5.js</header>
   <router-view></router-view>
 </template>
 
@@ -12,3 +13,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss">
+header {
+  height: 44px;
+}
+</style>
