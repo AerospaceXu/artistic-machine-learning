@@ -36,6 +36,7 @@ export default defineComponent({
       isTraining.value = true;
       try {
         await nnAxisClassifyService.classify();
+        await nnAxisClassifyService.infer();
         message.success('处理成功');
       } catch (e) {
         message.error(e.message);
