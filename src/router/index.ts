@@ -9,6 +9,10 @@ const router = createRouter({
       path: '/',
       component: Home,
     },
+    {
+      path: '/nn-axis-classify',
+      component: () => import('../views/NNAxisClassify.vue'),
+    },
   ],
 });
 
