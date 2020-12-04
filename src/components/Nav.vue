@@ -7,6 +7,11 @@
       <li>
         <router-link to="nn-axis-classify">NN坐标分类</router-link>
       </li>
+      <li>
+        <router-link to="knn-pose-net-classify">
+          KNN + PoseNet 姿势识别
+        </router-link>
+      </li>
     </ul>
   </nav>
 </template>
@@ -31,7 +36,8 @@ nav {
   > ul > li {
     margin: 0 12px;
 
-    > a.router-link-exact-active {
+    > a.router-link-exact-active,
+    a:hover {
       color: #546e7a;
       font-weight: 600;
     }

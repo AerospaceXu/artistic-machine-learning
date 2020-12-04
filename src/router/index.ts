@@ -13,6 +13,10 @@ const router = createRouter({
       path: '/nn-axis-classify',
       component: () => import('../views/NNAxisClassify.vue'),
     },
+    {
+      path: '/knn-pose-net-classify',
+      component: () => import('../views/KNNPoseNetClassify.vue'),
+    },
   ],
 });
 

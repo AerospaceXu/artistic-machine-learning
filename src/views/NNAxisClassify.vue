@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper">
+    <h2>神经网络坐标分类</h2>
     <div class="p5-board" ref="p5Ref" />
     <div class="buttons center">
       <a-button @click="toggleButtonType('red')">红</a-button>
