@@ -18,11 +18,15 @@
         </a-button>
       </div>
     </div>
+    <a-button @click="startToRecognize">识别模式</a-button>
+    <h2>{{ pose }}</h2>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
+
+import KNNPoseNetClassifyService from '../services/KNNPoseNetClassifyService';
 
 import Video from '../ui-kits/Video.vue';
 
@@ -32,9 +36,13 @@ export default defineComponent({
   name: 'KNNPoseNetClassify',
   components: { Video },
   setup() {
-    const videoRef = ref<HTMLVideoElement | null>(null);
-    const poseOneCanvasRef = ref<HTMLCanvasElement | null>(null);
-    const poseTwoCanvasRef = ref<HTMLCanvasElement | null>(null);
+    const knnPoseNetClassifyService = new KNNPoseNetClassifyService();
+    const {
+      videoRef,
+      poseTwoCanvasRef,
+      poseOneCanvasRef,
+      pose,
+    } = knnPoseNetClassifyService;
 
     const handlePhotograph = (type: string) => {
       if (
@@ -48,14 +56,21 @@ export default defineComponent({
           200,
           150
         );
+        knnPoseNetClassifyService.add(type);
       }
     };
 
+    const startToRecognize = () => {
+      knnPoseNetClassifyService.recognize();
+    };
+
     return {
+      pose,
       videoRef,
       poseOneCanvasRef,
       poseTwoCanvasRef,
       handlePhotograph,
+      startToRecognize,
     };
   },
 });
