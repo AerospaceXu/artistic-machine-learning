@@ -2,6 +2,16 @@ import $ from 'jquery';
 
 import { ClickData } from '../interfaces/click-data';
 
-export const $app = $('#app');
+const store: {
+  $app: JQuery<HTMLElement>;
+  $toggleButton: JQuery<HTMLElement>;
+  clickData: ClickData[];
+  buttonType: string;
+} = {
+  $app: $('#app'),
+  $toggleButton: $('#toggle-button'),
+  clickData: [],
+  buttonType: 'red',
+};
 
-export const clickData: ClickData[] = [];
+export default store;
