@@ -1,21 +1,12 @@
-import $ from 'jquery';
 import P5 from 'p5';
+import $ from 'jquery';
 
-const $app = $('#app');
+import { $app } from './store';
 
-$app.css({
-  width: '80vw',
-  height: 'calc(80vh - 88px)',
-  margin: '0 auto',
+import { sketchController } from './controllers/sketch-controller';
+import { styleController } from './controllers/style-controller';
+
+$(() => {
+  styleController();
+  new P5(sketchController, $app[0]);
 });
-
-console.log();
-
-const sketch = (p: P5) => {
-  p.setup = () => {
-    p.createCanvas($app.innerWidth() || 0, $app.innerHeight() || 0);
-    p.background('#111111');
-  };
-};
-
-new P5(sketch, $app[0]);
