@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.scss"],"names":[],"mappings":"AAAA,KACE,aAAA,CACA,UAAA,CACA,eAAA,CACA,aAEA,OACE,UAAA,CACA","file":"src.f70e4a72.css","sourceRoot":"../src","sourcesContent":["main {\n  margin: 0 auto;\n  width: 100%;\n  max-width: 768px;\n  padding: 24px;\n\n  > p {\n    margin: 8px;\n    text-align: center;\n  }\n}\n"]}
