@@ -34,7 +34,7 @@
 }
 
 .tool-bar {
-  width: 80vw;
+  width: calc(80vw - 200px);
   margin: 12px auto;
   display: flex;
   align-items: center;
