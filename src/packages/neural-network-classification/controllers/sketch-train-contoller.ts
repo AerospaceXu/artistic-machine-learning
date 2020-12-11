@@ -2,6 +2,9 @@ import store from '../store';
 import { getSpecial } from '../utils/getSpecial';
 
 export const sketchTrainController = () => {
+  store.$mask.css({
+    display: 'flex',
+  });
   const { clickData, nn } = store;
   if (clickData.length < 2) {
     alert('请添加至少两个数据');
@@ -26,5 +29,8 @@ export const sketchTrainController = () => {
   };
   nn.train(trainingOptions, () => {
     alert('训练完成！');
+    store.$mask.css({
+      display: 'none',
+    });
   });
 };

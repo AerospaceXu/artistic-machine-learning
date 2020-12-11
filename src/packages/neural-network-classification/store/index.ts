@@ -6,6 +6,7 @@ import { ClickData } from '../interfaces/click-data';
 
 const store: {
   $app: JQuery;
+  $mask: JQuery;
   map: any;
   width: number;
   perWidth: number;
@@ -16,6 +17,7 @@ const store: {
   nn: any;
 } = {
   $app: $('#app'),
+  $mask: $('.mask'),
   width: 0,
   perWidth: 0,
   height: 0,
