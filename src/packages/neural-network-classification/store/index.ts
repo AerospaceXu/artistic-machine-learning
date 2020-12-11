@@ -7,6 +7,9 @@ import { ClickData } from '../interfaces/click-data';
 const store: {
   $app: JQuery;
   $mask: JQuery;
+  $options: {
+    [key: string]: JQuery;
+  };
   map: any;
   width: number;
   perWidth: number;
@@ -18,6 +21,18 @@ const store: {
 } = {
   $app: $('#app'),
   $mask: $('.mask'),
+  $options: {
+    x: $('#special-x'),
+    y: $('#special-y'),
+    x2: $('#special-x2'),
+    y2: $('#special-y2'),
+    xy: $('#special-xy'),
+    sx: $('#special-sx'),
+    cx: $('#special-cx'),
+    sy: $('#special-sy'),
+    cy: $('#special-cy'),
+    epochs: $('#epochs'),
+  },
   width: 0,
   perWidth: 0,
   height: 0,
@@ -27,26 +42,31 @@ const store: {
   buttonType: 'red',
   nn: neuralNetworkCreator({
     task: 'classification',
-    debug: false,
+    debug: true,
     layers: [
       {
         type: 'dense',
-        units: 16,
+        units: 24,
         activation: 'relu',
       },
       {
         type: 'dense',
-        units: 16,
+        units: 20,
         activation: 'sigmoid',
       },
       {
         type: 'dense',
-        units: 14,
+        units: 16,
         activation: 'relu',
       },
       {
         type: 'dense',
-        units: 10,
+        units: 12,
+        activation: 'sigmoid',
+      },
+      {
+        type: 'dense',
+        units: 8,
         activation: 'sigmoid',
       },
       {

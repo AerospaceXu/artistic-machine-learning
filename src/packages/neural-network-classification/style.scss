@@ -34,14 +34,44 @@
 }
 
 .tool-bar {
-  width: 100%;
-  margin-top: 12px;
+  width: 80vw;
+  margin: 12px auto;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   user-select: none;
 
-  > button {
+  > .user-options {
+  }
+
+  > .train-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    .special {
+      margin-bottom: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      font-family: monospace;
+    }
+
+    label {
+      margin: 8px;
+      display: flex;
+      align-items: center;
+
+      > input {
+        padding: 4px;
+        max-width: 50px;
+        margin: 0 4px;
+      }
+    }
+  }
+
+  button {
     margin: 8px;
     padding: 4px 8px;
   }
