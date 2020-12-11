@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "parcel ./src/index.html --no-cache",
-    "build": "parcel build ./src/index.html -d build --public-url /artistic-machine-learning/dist/",
+    "build": "parcel build ./src/index.html -d build --public-url /artistic-machine-learning/build/",
     "lint": "./node_modules/.bin/prettier --write 'src/**'"
   },
   "dependencies": {

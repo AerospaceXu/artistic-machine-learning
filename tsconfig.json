@@ -5,6 +5,7 @@
     "strict": true,
     "jsx": "preserve",
     "moduleResolution": "node",
+    "sourceMap": false,
     "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*.ts"],
