@@ -3,7 +3,7 @@ import { getSpecial } from '../utils/getSpecial';
 
 export const sketchInferController = async () => {
   const { nn, width, height } = store;
-  const COL_NUMBER = 30;
+  const COL_NUMBER = 50;
   const perWidth = width / COL_NUMBER;
   store.perWidth = perWidth;
   const current = { x: 0, y: 0 };

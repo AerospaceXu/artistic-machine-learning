@@ -17,19 +17,22 @@ export const sketchController = (p: P5) => {
 
   p.draw = () => {
     p.background('#111111');
+    const { inferData, perWidth } = store;
+    if (inferData.length > 0) {
+      p.noStroke();
+      inferData.forEach((item) => {
+        p.fill(item.type);
+        p.rect(item.x, item.y, perWidth, perWidth);
+      });
+    }
+    p.stroke(0);
+    p.strokeWeight(2);
     store.clickData.forEach((item) => {
       p.fill(item.type);
       const xM = p.map(item.x, -5, 5, 0, p.width);
       const yM = p.map(item.y, -5, 5, 0, p.height);
       p.ellipse(xM, yM, POINT_RADIUS, POINT_RADIUS);
     });
-    const { inferData, perWidth } = store;
-    if (inferData.length > 0) {
-      inferData.forEach((item) => {
-        p.fill(item.type);
-        p.rect(item.x, item.y, perWidth, perWidth);
-      });
-    }
   };
 
   p.mouseClicked = () => {

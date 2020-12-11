@@ -39,6 +39,16 @@ const store: {
       },
       {
         type: 'dense',
+        units: 14,
+        activation: 'relu',
+      },
+      {
+        type: 'dense',
+        units: 10,
+        activation: 'sigmoid',
+      },
+      {
+        type: 'dense',
         activation: 'sigmoid',
       },
     ],

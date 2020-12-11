@@ -21,7 +21,7 @@ export const sketchTrainController = () => {
     return;
   }
   const trainingOptions = {
-    epochs: 100,
+    epochs: 888,
     batchSize: 10,
   };
   nn.train(trainingOptions, () => {
