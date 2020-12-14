@@ -8,7 +8,9 @@ export const eventBindController = () => {
     addDataController();
   });
   $('#change').on('click', () => {
-    store.type = store.type === 'red' ? 'blue' : 'red';
+    const nextColor = store.type === 'red' ? 'blue' : 'red';
+    store.type = nextColor;
+    $('#change').text(`添加数据${nextColor}`);
   });
   $('#train').on('click', () => {
     trainController();
