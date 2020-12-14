@@ -34,7 +34,7 @@
 }
 
 .tool-bar {
-  width: calc(80vw - 200px);
+  width: calc(88vw - 200px);
   margin: 12px auto;
   display: flex;
   align-items: center;
@@ -51,11 +51,17 @@
     align-items: flex-start;
 
     .special {
-      margin-bottom: 16px;
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      font-family: monospace;
+      strong {
+        font-size: 16px;
+      }
+      > .options-children {
+        margin-bottom: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        font-family: monospace;
+      }
     }
 
     label {
