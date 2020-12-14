@@ -10,9 +10,12 @@ export const eventBindController = () => {
   $('#change').on('click', () => {
     const nextColor = store.type === 'red' ? 'blue' : 'red';
     store.type = nextColor;
-    $('#change').text(`添加数据${nextColor}`);
+    $('#add-example').text(`添加数据${nextColor}`);
   });
   $('#train').on('click', () => {
     trainController();
   });
+  $('#save').on('click', () => {
+    store.nn.saveData();
+  })
 };
