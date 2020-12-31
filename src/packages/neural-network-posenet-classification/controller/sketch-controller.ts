@@ -24,14 +24,15 @@ export const sketchController = (p: P5) => {
   };
 
   p.draw = async () => {
-    p.translate(
+    p.background(255);
+    p.image(
+      video,
+      0,
+      0,
+      store.width,
       // @ts-ignore
-      store.width / 2 - video.width / 2,
-      // @ts-ignore
-      store.height / 2 - video.height / 2
+      (video.height / video.width) * store.width
     );
-    // @ts-ignore
-    p.image(video, 0, 0, video.width || 0, video.height || 0);
     if (store.pose.length >= 1) {
       store.pose.forEach((point: any) => {
         p.fill('green');
